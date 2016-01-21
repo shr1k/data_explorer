@@ -1,9 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Journey -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Journey %></h1>
+</div>
 
-<p>
-  <strong>Timetable:</strong>
-  <%= @journey.timetable %>
-</p>
+<div class="fieldset">
+  <dl>
+  </dl>
+</div>
 
-<%= link_to 'Edit', edit_journey_path(@journey) %> |
-<%= link_to 'Back', journeys_path %>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              journeys_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_journey_path(@journey), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              journey_path(@journey),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
