@@ -1,6 +1,5 @@
-<h1>Editing timetable</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @timetable %> |
-<%= link_to 'Back', timetables_path %>
+<%- model_class = Timetable -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Timetable %></h1>
+</div>
+<%= render :partial => 'form' %>
