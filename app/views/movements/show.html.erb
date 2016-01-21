@@ -1,9 +1,22 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Movement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Movement %></h1>
+</div>
 
-<p>
-  <strong>Journey:</strong>
-  <%= @movement.journey %>
-</p>
+<div class="fieldset">
+  <dl>
+  </dl>
+</div>
 
-<%= link_to 'Edit', edit_movement_path(@movement) %> |
-<%= link_to 'Back', movements_path %>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              movements_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_movement_path(@movement), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              movement_path(@movement),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
